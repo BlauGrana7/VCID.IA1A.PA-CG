@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: vcid-application
-          image: royalblue7/flask-vcid:v1.3
+          image: royalblue7/flask-vcid:v1.4
           ports:
             - containerPort: 5000
           env:
