@@ -24,7 +24,7 @@
         <h2>Umfrage über die Ausbildung HF Systemtechniker</h2>
 
         <div class="d-flex align-items-center">
-            <b>Progress : </b>
+            <b>Fortschritt : </b>
             <div class="progress my-3 ml-3 flex-grow-1 mx-5" role="progressbar" aria-label="Info striped example"
                 aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
                 <div class="progress-bar progress-bar-striped bg-info" style="width: {{ progress }}%">{{progress}}%
@@ -83,23 +83,23 @@
                         wechselt von der ersten Seite auf die zweite Seite-->
                 {% if progress == 0 %}
                 <button type="button" disabled class="btn btn-secondary">&larr;
-                    Previous</button>
-                <button type="submit" formaction="/user_panel/2" class="btn btn-secondary"> &rarr; Next</button>
+                    Vorherige Seite</button>
+                <button type="submit" formaction="/user_panel/2" class="btn btn-secondary"> &rarr; Nächste Seite</button>
                 {% endif %}
                 <!--    prüft ob der Forschritt bei 66 Prozent ist,
                         wechselt von der zweiten Seite auf die dritte Seite-->
                 {% if progress == 33 %}
                 <a href="{{ url_for('user_panel',id=1) }}">
-                    <button type="button" class="btn btn-secondary">&larr; Previous</button>
+                    <button type="button" class="btn btn-secondary">&larr; Vorherige Seite</button>
                 </a>
-                <button type="submit" formaction="/user_panel/3" class="btn btn-secondary"> &rarr; Next</button>
+                <button type="submit" formaction="/user_panel/3" class="btn btn-secondary"> &rarr; Nächste Seite</button>
                 {% endif %}
                 <!--    prüft ob der Forschritt bei 100 Prozent ist-->
                 {% if progress == 66 %}
                 <a href="{{ url_for('user_panel',id=2) }}">
-                    <button type="button" class="btn btn-secondary">&larr; Previous</button>
+                    <button type="button" class="btn btn-secondary">&larr; Vorherige Seite</button>
                 </a>
-                <button type="submit" formaction="/post_survey" class="btn btn-secondary"> &rarr; Submit</button>
+                <button type="submit" formaction="/post_survey" class="btn btn-secondary"> &rarr; Einreichen</button>
                 {% endif %}
 
         </form>

@@ -7,7 +7,7 @@ import pandas as pd
 import matplotlib
 import numpy as np
 
-matplotlib.use('Agg')  # Use a thread-safe backend
+matplotlib.use('Agg')
 
 mydb = mysql.connector.connect(
     host="mysql",
@@ -56,17 +56,17 @@ def plot_handler(column):
     query = f"SELECT `{column}` FROM survey"
     data = pd.read_sql_query(query, mydb)
 
-    # Count the occurrences of each response option
+    # Zählt die Häufigkeit jeder Antwort
     option_counts = data[column].value_counts()
 
     plt.figure()
     plt.bar(option_counts.index, option_counts.values, width=0.4)
-    plt.xlabel('Response Option')
-    plt.ylabel('Number of Users who responded')
+    plt.xlabel('Antwortmöglichkeit')
+    plt.ylabel('Anzahl Antwort')
     plt.title(column)
     plt.tight_layout()
-    # Set a minimum y-axis limit
-    min_limit = 0  # Set this based on your preference
+    # Minimum der y-axis setzen
+    min_limit = 0 
     plt.ylim(bottom=min_limit)
     plt.grid(True)
     # y_ticks = range(int(option_counts.min()), int(option_counts.max()) + 1, 1)
@@ -75,22 +75,22 @@ def plot_handler(column):
 
 def create_plot():
     plot_strings_list = []
-    plot_handler('Quality of Teaching')
+    plot_handler('Infrastruktur')
     img_b64 = plot_to_img()
     str = "data:image/png;base64,"+img_b64
     plot_strings_list.append(str)
 
-    plot_handler('Level of Difficulty of Training')
+    plot_handler('Praxis/Theorie')
     img_b64 = plot_to_img()
     str = "data:image/png;base64,"+img_b64
     plot_strings_list.append(str)
 
-    plot_handler('Diversity of Students in Training')
+    plot_handler('Beschäftigungsgrad Empfehlung')
     img_b64 = plot_to_img()
     str = "data:image/png;base64,"+img_b64
     plot_strings_list.append(str)
 
-    plot_handler('Level of Recommendation of Company on 1-10 Scale')
+    plot_handler('Weiterempfehlung von 1-10')
     img_b64 = plot_to_img()
     str = "data:image/png;base64,"+img_b64
     plot_strings_list.append(str)
@@ -98,14 +98,14 @@ def create_plot():
     return plot_strings_list
 
 
-def plot_to_img():  # converts plot to img
+def plot_to_img():  # Konvertiert plot to img
 
-    # Save plot to a BytesIO object
+    
     img = io.BytesIO()
     plt.savefig(img, format='png')
     img.seek(0)
 
-    # Convert BytesIO object to base64 string
+    # Konvertiert BytesIO object to base64 string
     img_b64 = base64.b64encode(img.getvalue()).decode()
 
     return img_b64
