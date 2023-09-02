@@ -221,5 +221,4 @@ def admin_panel():
     mydb.commit()
     return render_template("admin_page.html", str_list=list, answers=result)
 
-
-app.run(debug=True)
+app.run(debug=True,host='0.0.0.0',port=5000)
