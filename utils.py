@@ -10,9 +10,9 @@ import numpy as np
 matplotlib.use('Agg')  # Use a thread-safe backend
 
 mydb = mysql.connector.connect(
-    host="localhost",
+    host="mysql",
     user="root",
-    password="root",
+    password="pass",
     database="survey_db"
 )
 # Die Fragen der Umfrage
