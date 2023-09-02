@@ -17,40 +17,36 @@ mydb = mysql.connector.connect(
 )
 # Die Fragen der Umfrage
 questions = [
-    "Which area of computer science interests you the most?",
-    "Which area of computer science do you find the most difficult?",
-    "How do you find the quality of the teaching materials?",
-    "How do you find the quality of the teaching?",
-    "How satisfied are you with the organization of the training?",
-    "Would you recommend the training?",
-    "How would you rate the level of difficulty of the training?",
-    "How often do you feel challenged by the training?",
-    "How well do you feel prepared for the workforce after completing the training?",
-    "How would you rate the diversity of the students in the training?",
-    "How would you rate the support from the faculty and staff in the training?",
-    "How likely is it that you would recommend this company to a friend or colleague?",
-    "What are your strengths and weaknesses in relation to the training?",
-    "What do you wish for the future of the training?",
-    "What would you change about the training if you could?"
+    "Wie zufrieden waren Sie mit der Ausbildung insgesamt?",
+    "Wie würden Sie die Qualität der Dozenten bewerten?",
+    "Wie bewerten Sie die Infrastruktur der Schule?",
+    "Hat Ihnen die Ausbildung geholfen, Ihre beruflichen Ziele zu erreichen",
+    "Wie empfinden Sie die Vorbereitung auf IT-Zertifizierungsprüfungen im Rahmen Ihrer Ausbildung?",
+    "Wie empfinden Sie die Vorbereitung im Unterricht auf die Praxisarbeiten Ihrer Ausbildung?",
+    "Wie war die Gewichtung von Praxis zum Theorieteil während des Unterrichts?",
+    "Wie herausfordernd haben Sie die Ausbildung empfunden?",
+    "Welchen Beschäftigungsgrad hatten Sie während der Ausbildung?",
+    "Welchen Beschäftigungsgrad würden Sie für die Ausbildung empfehlen?",
+    "Wie haben Sie den Online-Unterricht im Vergleich zum Präsenz-Unterricht empfunden?",
+    "Wie wahrscheinlich würden Sie die Ausbildung weiterempfehlen?",
+    "Welche Fächer waren nicht nötig oder nicht für ihre Tätigkeit nützlich?",
+    "Welche Inhalte der Ausbildung hätten Sie gerne tiefer behandelt im Unterricht/oder haben sogar gefehlt?",
+    "Haben Sie Verbesserungsvorschläge für die Ausbildung?"
 ]
 
 # List of options for MCQ-based questions
 mcq_options = [
-    ["System engineering", "Network engineering", "Cyber security", "Other"],
-    ["System engineering", "Network engineering", "Cyber security", "Other"],
-    ["Very good", "Good", "Satisfactory", "Not satisfied"],
-    ["Very good", "Good", "Satisfactory", "Not satisfied"],
-    ["Very satisfied", "Satisfied", "Unsatisfied", "Very unsatisfied"],
-    ["Yes, definitely", "Yes, but with reservations",
-        "No, rather not", "No, definitely not"],
-    ["Very easy", "Easy", "Moderate", "Difficult", "Very difficult"],
-    ["Very often", "Often", "Sometimes", "Rarely", "Never"],
-    ["Very well prepared", "Well prepared", "Somewhat prepared",
-        "Not prepared", "Not at all prepared"],
-    ["Very diverse", "Diverse", "Somewhat diverse",
-        "Not diverse", "Not at all diverse"],
-    ["Very supportive", "Supportive", "Somewhat supportive",
-        "Not supportive", "Not at all supportive"],
+    ["Sehr zufrieden", "Zufrieden", "Unzufrieden", "Sehr unzufrieden"],
+    ["Sehr Kompetent", "Kompetent", "Eher Kompetent", "Nicht Zufriedenstellend"],
+    ["Sehr gut", "Gut", "Aktzeptabel", "Schlecht"],
+    ["Ja", "Eher ja", "Eher nein", "Nein"],
+    ["Sehr gut", "Gut", "Aktzeptabel", "Schlecht"],
+    ["Ja", "Eher ja", "Eher nein", "Nein", "Nein überhaupt nicht"],
+    ["Praxis dominierte", "Gleichgewicht zwischen Praxis und Theorie", "Theorie dominierte", "Keine Praxiserfahrung"],
+    ["Sehr herausfordernd", "Herausfordernd", "Angemessen", "Eher einfach", "Sehr einfach"],
+    ["100%", "90%", "80%", "70%", "50%"],
+    ["100%", "90%", "80%", "70%", "50%"],
+    ["Sehr gut", "Gleichwertig", "Eher schlechter", "Schlechter", "Je nach Dozent"],
     [1,2,3,4,5,6,7,8,9,10]
 ]
 # Folgende Funktionen werden in app.py für die grafische Darstellung der Admin-Seite gebraucht
