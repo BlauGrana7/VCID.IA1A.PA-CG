@@ -21,9 +21,9 @@ app.config['SECRET_KEY'] = 'your-secret-key'
 Session(app)
 
 mydb = mysql.connector.connect(
-    host="localhost",
+    host="mysql",
     user="root",
-    password="root",
+    password="pass",
     database="survey_db"
 )
 mycursor = mydb.cursor()
