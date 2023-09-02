@@ -16,8 +16,7 @@ spec:
     spec:
       containers:
         - name: vcid-application
-          image: flask-vcid
-          imagePullPolicy: Never
+          image: royalblue7/flask-vcid:v1.1
           ports:
             - containerPort: 5000
           env:
