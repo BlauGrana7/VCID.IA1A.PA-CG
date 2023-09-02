@@ -10,9 +10,9 @@ import numpy as np
 matplotlib.use('Agg')
 
 mydb = mysql.connector.connect(
-    host="mysql",
+    host="localhost",
     user="root",
-    password="pass",
+    password="root",
     database="survey_db"
 )
 # Die Fragen der Umfrage
