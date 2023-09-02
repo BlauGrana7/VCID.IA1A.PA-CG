@@ -85,7 +85,7 @@ def create_plot():
     str = "data:image/png;base64,"+img_b64
     plot_strings_list.append(str)
 
-    plot_handler('Beschäftigungsgrad Empfehlung')
+    plot_handler('Beschaeftigungsgrad Empfehlung')
     img_b64 = plot_to_img()
     str = "data:image/png;base64,"+img_b64
     plot_strings_list.append(str)
