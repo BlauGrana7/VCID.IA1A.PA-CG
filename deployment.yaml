@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vcid-application
+  labels:
+    app: vcid-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vcid-app
+  template:
+    metadata:
+      labels:
+        app: vcid
+    spec:
+      containers:
+        - name: vcid-application
+          image: flask-vcid
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 5000
+          env:
+            - name: db_root_password
+              value: pass
+            - name: db_name
+              value: survey_db
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vcid-service
+spec:
+  ports:
+  - port: 5000
+    protocol: TCP
+    targetPort: 5000
+  selector:
+    app: vcid-app
+  type: LoadBalancer
