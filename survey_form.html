@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="../static/styles.css" rel="stylesheet">
+    <title>MCQ Form</title>
+
+</head>
+
+<body>
+    <!-- NavBar -->
+    <nav class="navbar mb-5 navbar-dark bg-dark">
+        <div class="container-fluid">
+            <h1 class="navbar-brand h3">Benutzer Dashboard</h1>
+            <a href="/signout">
+                <button class="btn btn-secondary" type="button">Ausloggen</button>
+            </a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Umfrage über die Ausbildung HF Systemtechniker</h2>
+
+        <div class="d-flex align-items-center">
+            <b>Progress : </b>
+            <div class="progress my-3 ml-3 flex-grow-1 mx-5" role="progressbar" aria-label="Info striped example"
+                aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar progress-bar-striped bg-info" style="width: {{ progress }}%">{{progress}}%
+                </div>
+            </div>
+        </div>
+
+
+
+        <form method="post">
+
+            <!-- Schleife zum Durchlaufen der Fragen und zum rendern der grafischen Darstellung-->
+            {% for question, options in question_options %}
+
+            <p>{{questions.index(question)+1}}. {{ question }}</p>
+
+            <!-- Spezielle Frage welche einen Slider braucht (F12)-->
+            {% if questions.index(question) == 11 %} {# Prüft die abgefragte Frage #}
+            <div class="slider-container">
+                <span class="slider-label">Eher unwahrscheinlich</span>
+                <input class="slider" type="range" name="11" min="1" max="10" value="5" step="1"
+                    oninput="rangeValue.innerText = this.value">
+                <p style="display:inline;" id="rangeValue"> 10 </p>
+                <span class="slider-label mx-5">Sehr wahrscheinlich</span>
+            </div>
+
+
+            {% else %}
+
+            {% for option in options %}
+            <label>
+                <input type="radio" name="{{questions.index(question)}}" value="{{ option }}">
+                {{ option }}
+            </label><br>
+
+            {% endfor %}
+
+            {% endif %}
+
+            <br>
+            {% endfor %}
+
+            <!-- Fragen zur Texteingabe rendern -->
+            {% for question in textarea_questions %}
+            <div class="mb-3">
+                <label>{{questions.index(question)+1}}. {{ question }}</label>
+                <textarea class="form-control" rows="4" name="text{{ loop.index }}"></textarea>
+            </div>
+            {% endfor %}
+
+            <!--    Erstellen von Schaltflächen für "Vorherige" und "Nächste" und Schreiben von Bedingungen, unter welchen
+                    Voraussetzungen diese ordnungsgemäß aktiviert werden sollen, d.h. wohin nach
+                    dem Klicken auf sie navigiert werden soll, basierend auf der aktuellen Seite -->
+            <div class="d-flex justify-content-between">
+                <!--    prüft ob der Forschritt bei 33 Prozent ist,
+                        wechselt von der ersten Seite auf die zweite Seite-->
+                {% if progress == 0 %}
+                <button type="button" disabled class="btn btn-secondary">&larr;
+                    Previous</button>
+                <button type="submit" formaction="/user_panel/2" class="btn btn-secondary"> &rarr; Next</button>
+                {% endif %}
+                <!--    prüft ob der Forschritt bei 66 Prozent ist,
+                        wechselt von der zweiten Seite auf die dritte Seite-->
+                {% if progress == 33 %}
+                <a href="{{ url_for('user_panel',id=1) }}">
+                    <button type="button" class="btn btn-secondary">&larr; Previous</button>
+                </a>
+                <button type="submit" formaction="/user_panel/3" class="btn btn-secondary"> &rarr; Next</button>
+                {% endif %}
+                <!--    prüft ob der Forschritt bei 100 Prozent ist-->
+                {% if progress == 66 %}
+                <a href="{{ url_for('user_panel',id=2) }}">
+                    <button type="button" class="btn btn-secondary">&larr; Previous</button>
+                </a>
+                <button type="submit" formaction="/post_survey" class="btn btn-secondary"> &rarr; Submit</button>
+                {% endif %}
+
+        </form>
+
+
+    </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

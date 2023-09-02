@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <title>My Page</title>
+</head>
+
+<style>
+    #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        margin: 50px 0px 50px 10px;
+    }
+
+    #customers td,
+    #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    #customers tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    #customers tr:hover {
+        background-color: #ddd;
+    }
+
+    #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #04AA6D;
+        color: white;
+    }
+</style>
+
+
+<body class="text-center">
+    <!-- Navbar: -->
+    <nav class="navbar mb-5 navbar-dark bg-dark">
+        <div class="container-fluid">
+            <h1 class="navbar-brand h3">Admin Übersicht</h1>
+            <a href="/">
+                <button class="btn btn-secondary" type="button">Login Page</button>
+            </a>
+        </div>
+    </nav>
+
+    <h2>Tabellenansicht der Umfrageergebnisse</h2>
+
+    <table id="customers">
+
+        <th>Benutzername</th>
+        <th>Area of Computer Science Interest</th>
+        <th>Most Difficult Area of Computer Science</th>
+        <th> Quality of Teaching materials</th>
+        <th>Quality of Teaching</th>
+        <th>Satisfaction with Training Organization</th>
+        <th>Recommendation of Training</th>
+        </tr>
+        {% for answer in answers %}
+        <tr>
+            <td>{{answer[1]}}</td>
+            <td>{{answer[2]}}</td>
+            <td>{{answer[3]}}</td>
+            <td>{{answer[4]}}</td>
+            <td>{{answer[5]}}</td>
+            <td>{{answer[6]}}</td>
+            <td>{{answer[7]}}</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <table id="customers">
+        <tr>
+            <th>Username</th>
+            <th>Level of Difficulty of Training</th>
+            <th>Frequency of Feeling Challenged by Training</th>
+            <th> Level of Preparation After Training</th>
+            <th> Diversity of Students in Training</th>
+            <th>Support from Faculty and Staff</th>
+            <th> Level of Recommendation of Company on 1-10 Scale</th>
+        </tr>
+
+        {% for answer in answers %}
+        <tr>
+            <td>{{answer[1]}}</td>
+            <td>{{answer[8]}}</td>
+            <td>{{answer[9]}}</td>
+            <td>{{answer[10]}}</td>
+            <td>{{answer[11]}}</td>
+            <td>{{answer[12]}}</td>
+            <td>{{answer[13]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+    <div>
+        <h2>Grafische Ansicht der Umfrageergebnisse</h2>
+        {% for string in str_list %}
+        <img src="{{string}}" class="blog-image">
+
+        {% endfor %}
+
+    </div>
+</body>
+
+</html>
