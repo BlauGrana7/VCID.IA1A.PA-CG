@@ -1,22 +1,22 @@
-Following steps need to be taken sequence wise to run code:
+# Herzlich Willkommen zur der Umfrage-Web-App für den Studiengange der ipso-Bildung AG als HF Techniker in Informatik
 
-1.Keep directory structure the same as kept in sent rar file.
+Diese Web-Applikation wurde mit Flask/Python für die Praxisarbeit VCID.1A1A erstellt.
 
-2.First of all run the survey_db_initializer.sql file which will initialize database named survey_db with tables of user,survey and admin. It will also put default credentials of admin (wirtten below) in admin table.
+Ziel ist es, eine Umfrage durchzuführen und die Ergebnisse in einer MySQL-Datenbank abzuspeichern.
 
-3.Open app.py file and see imports in it. If you have any error on some import i.e. not downloaded that imported library or something , then open terminal like cmd/powershell and write "pip install libraryname".For example, if you have error on flask_session means its not downloaded.Then open cmd/powershell and write "pip install flask_session".
+Als Admin, kann man die Ergebnisse in grafischer und Tabellenform anschauen.
 
-4.After above steps , you are good to go.Just run the app.py file and follow website link. Afterwards, the website is made to be used easily. Cheers!
+Es ist wichtig, dass die Datenbank vorher läuft.
 
+# Benutzerlogin
 
-Important points:
+Der Admin-Benutzer ist über die fiktive e-mail Adresse admin@gmail.com möglich.
+Das Passwort lautet: pass
 
-1.Admin Credentials: 
-  email:  admin@gmail.com
-  pasword: pass
+# Wichtige Informationen
 
-2.User must fill in answers to every question to submit form without errors.
+1. Benutzer muss jede Frage beantworten, damit keine Fehlermeldungen entstehen.
 
-3.One email can only be assigned to one user. If more than one sign up with same email is tried, you will see error.
+2. Die E-Mail Adresse kann nur einmal pro User verwendet werden. Mit der gleichen Adresse, entsteht eine Fehlermeldung.
 
-4.One user can only fill one survey form.If he tries to fill it again, an error will be encountered saying something like duplicate key:PRIMARY().
+3. Jeder Benutzer kann nur eine Umfrage ausfüllen.
