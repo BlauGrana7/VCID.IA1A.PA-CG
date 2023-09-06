@@ -37,7 +37,7 @@ metadata:
   namespace: vcid
 spec:
   concurrencyPolicy: Forbid
-  schedule: '0 19 * * *' # cron spec of time, here, 8 o'clock
+  schedule: '0 19 * * *' # definiert wann der cronjob laufen soll, hier 19:00
   jobTemplate:
     spec:
       backoffLimit: 2
