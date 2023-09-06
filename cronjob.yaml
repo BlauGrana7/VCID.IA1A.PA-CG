@@ -37,7 +37,7 @@ metadata:
   namespace: vcid
 spec:
   concurrencyPolicy: Forbid
-  schedule: '0 19 * * *' # definiert wann der cronjob laufen soll, hier 19:00
+  schedule: '5 17 * * *' # Es zählt UTC zeit definiert wann der cronjob laufen soll, hier 17:05
   jobTemplate:
     spec:
       backoffLimit: 2
