@@ -38,6 +38,7 @@ metadata:
 spec:
   concurrencyPolicy: Forbid
   schedule: '0 * * * *' # Es zählt UTC zeit definiert wann der cronjob laufen soll, konfiguriert auf jede volle stunde 
+  successfulJobsHistoryLimit: 2
   jobTemplate:
     spec:
       backoffLimit: 2
