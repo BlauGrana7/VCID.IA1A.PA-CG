@@ -34,7 +34,7 @@ questions = [
     "Haben Sie Verbesserungsvorschläge für die Ausbildung?"
 ]
 
-# List of options for MCQ-based questions
+# Liste der Antwortoptionen
 mcq_options = [
     ["Sehr zufrieden", "Zufrieden", "Unzufrieden", "Sehr unzufrieden"],
     ["Sehr Kompetent", "Kompetent", "Eher Kompetent", "Nicht Zufriedenstellend"],
