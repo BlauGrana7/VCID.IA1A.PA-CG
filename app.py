@@ -122,13 +122,13 @@ def user_panel(id):
 
 
 class SurveyAPI(Resource):
-    def get(self):#when we want to fetch data from api
+    def get(self):#Wenn wir Daten von einer API abrufen möchten
         user_answers = {
             session.get("user"): session.get("answers")
         }
         return jsonify(user_answers)
 
-    def post(self):#when we want to post data to api
+    def post(self):#Wenn wir Daten an eine API senden möchten
         user_answers = {
             session.get("user"): session.get("answers")
         }
@@ -161,7 +161,7 @@ def post_survey():
         
         data.append((session.get("answers"))[key])
 
-    # Text antoworten
+    # Text antworten
     data.append(request.form.get("text1"))
     data.append(request.form.get("text2"))
     data.append(request.form.get("text3"))
